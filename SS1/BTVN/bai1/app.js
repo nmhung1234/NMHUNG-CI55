@@ -1,5 +1,5 @@
 let arr = [3, 6, -2, -5, 7, 3];
-let max = 0;
+let max = arr[0]*arr[1];
 
 function adjacentElementProduct(arr) {
     for (let i = 0; i < arr.length; i++) {
