@@ -36,7 +36,7 @@ class login extends HTMLElement {
             <input-wraper type="password" placeholder="Password" id="password"></input-wraper>
             <button>Login</button>
         </form>
-        <a href="../BTVN/index.html" target="_blank">Don't have Acount? Register</a>
+        <a href="../Register/index.html" target="_blank">Don't have Acount? Register</a>
     </div>
     `
 
