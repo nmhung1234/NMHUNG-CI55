@@ -13,3 +13,6 @@ findOddNumber(inputarr);
 // without using loop
 arr = inputarr.filter((index) => index % 2 != 0);
 console.log(arr);
+
+let hmm = arr.map( num => num*2);
+console.log(hmm.join(" "));

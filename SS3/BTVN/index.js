@@ -76,9 +76,9 @@ class Person extends HTMLElement {
     </div>`;
        
     }
-    connectedCallback(){
-        console.log('ajhvhb')
-    }
+    // connectedCallback(){
+    //     console.log('ajhvhb')
+    // }
 }
 
-window.customElements.define('show-info', Person);
+window.customElements.define('................o', Person);
