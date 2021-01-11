@@ -49,9 +49,9 @@ class login extends HTMLElement {
             
             firebase.auth().signInWithEmailAndPassword(email, password)
             .then(res => {
-                alert(`Bạn đã đăng nhập thành công với tài khoản ${res.user.email}`);
-                this.shadowDom.getElementById('email').value = '';
-                this.shadowDom.getElementById('password').value = '';
+                alert(`Bạn đã đăng nhập thành công với tài khoản ${email}`);
+                this._shadowRoot.getElementById('email').value = '';
+                this._shadowRoot.getElementById('password').value = '';
             })
             .catch(err => {
                 alert(err.message);
