@@ -23,7 +23,6 @@ firebase.auth().onAuthStateChanged((user) => {
         }
         // luu vao bien global
         window.currentUser = user1;
-
       redirect('wellcome');
     } else {
       redirect('login');
