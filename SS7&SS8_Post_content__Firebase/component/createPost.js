@@ -64,6 +64,8 @@ class CreatePost extends HTMLElement {
             } else {
                 db.collection('posts').add({ content });
                 alert('Tải bài viết lên thành công');
+                content = '';
+                db.collection('posts').get
             }
 
         })

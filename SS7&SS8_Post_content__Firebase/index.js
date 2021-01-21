@@ -3,6 +3,8 @@ import './screen/register-screen.js';
 import './screen/home-screen.js';
 import './component/header.js';
 import './component/createPost.js';
+import './component/list-post.js';
+import './component/post-items.js';
 
 export function redirect(screen){
     if(screen == 'register'){

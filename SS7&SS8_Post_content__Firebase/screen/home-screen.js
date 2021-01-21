@@ -5,6 +5,7 @@ class home extends HTMLElement {
         this._shadowDOM = this.attachShadow({mode: 'open'});
         this._shadowDOM.innerHTML = `<story-header></story-header>
                                     <create-post></create-post>
+                                    <list-post></list-post>
         `;
     }
 }
