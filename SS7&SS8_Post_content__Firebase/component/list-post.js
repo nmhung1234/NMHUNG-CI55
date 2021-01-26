@@ -4,9 +4,10 @@ class ListPost extends HTMLElement {
         this._shadowDOM = this.attachShadow({ mode: 'open' });
 
         db.collection('posts').onSnapshot(res => {
+            // console.log(res.docs[0].id)
             let postItems = res.docs.map(doc => {
                 return `
-                <post-item content = '${doc.data().content}' time="${doc.data().createdAt}"></post-item>
+                <post-item content = '${doc.data().content}' time="${doc.data().createdAt}" id="${doc.id}"></post-item>
                 `
             })
             this._shadowDOM.innerHTML = `<div>

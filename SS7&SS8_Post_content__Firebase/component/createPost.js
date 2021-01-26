@@ -1,6 +1,6 @@
 const style = `<style>
 .create__post{
-    height: 70vh;
+    // height: 70vh;
     width: 70vh;
     background-color: aquamarine;
     margin: 0 auto;
