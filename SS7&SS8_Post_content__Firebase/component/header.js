@@ -1,3 +1,4 @@
+import { redirect } from '../index.js';
 const style = `<style>
 *{
     box-sizing: border-box;
@@ -19,6 +20,9 @@ const style = `<style>
 .header__right .avatar{
     padding: 0 20px;
 }
+.logout{
+    cursor: pointer;
+}
 </style>`
 class header extends HTMLElement{
     constructor() {
@@ -33,6 +37,10 @@ class header extends HTMLElement{
             <div class="logout">logout</div>
         </div>
     </div>`
+    this._shadowDOM.querySelector('.logout').addEventListener('click', () => {
+        firebase.auth().signOut();
+        redirect('home');
+    })
     }
 }
 window.customElements.define('story-header', header);

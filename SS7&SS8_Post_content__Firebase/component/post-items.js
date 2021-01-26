@@ -16,6 +16,9 @@ const style = `
             border: 1px solid black;
             border-radius: 7px;
         }
+        #image{
+            width: 400px;
+        }
     </style>
 `
 
@@ -28,15 +31,25 @@ class PostItem extends HTMLElement {
 
             content: this.getAttribute('content'),
             time: this.getAttribute('time').substring(0, 10),
-            id: this.getAttribute('id')
+            id: this.getAttribute('id'),
+            img: this.getAttribute('img')
         }
-        this._shadowDOM.innerHTML = `
+        let img = '';
 
+        if(this._post.img != 'abc'){
+            img = `<img src="${this._post.img}" id="image">`;
+        }
+        else{
+            img = '';
+        }
+
+        this._shadowDOM.innerHTML = `
         ${style}
         <div class="container">
             <div class="post">
                 <p>Created At ${this._post.time}</p>
                 <p class"content">${this._post.content}</p>
+                ${img}
                 <button class="btndelete">Delete</button>
             </div>
         </div>

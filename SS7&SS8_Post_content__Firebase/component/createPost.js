@@ -1,3 +1,4 @@
+import {uploadFile} from './utils.js';
 const style = `<style>
 .create__post{
     // height: 70vh;
@@ -38,6 +39,7 @@ const style = `<style>
     color: white;
 
 }
+
 </style>`
 class CreatePost extends HTMLElement {
     constructor() {
@@ -50,22 +52,28 @@ class CreatePost extends HTMLElement {
             <textarea name="" id="contenttext"></textarea>
         </div>
         <div class="button">
-            <input type="file" name="" id="">
+            <input type="file" name="" id="image">
             <button class="btnpost">Post</button>
         </div>
     </div>`
 
 
-        this._shadowDOM.querySelector('.btnpost').addEventListener('click', () => {
+        this._shadowDOM.querySelector('.btnpost').addEventListener('click', async () => {
 
             const content = this._shadowDOM.querySelector('#contenttext').value;
+
+            const image = this._shadowDOM.querySelector('#image').files[0];
+
             if (content.trim() == '') {
                 alert("Bạn chưa nhập bài viết")
             } else {
-                db.collection('posts').add({ content });
+                const docRef = await db.collection('posts').add({ content });
                 alert('Tải bài viết lên thành công');
-                content = '';
-                db.collection('posts').get
+                this._shadowDOM.querySelector('#contenttext').value = '';
+
+                db.collection('posts').doc(docRef.id).update({ 
+                    img: await uploadFile(image)
+                })
             }
 
         })
